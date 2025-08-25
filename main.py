@@ -140,6 +140,7 @@ async def delete_channel_cb(callback: CallbackQuery):
 
 @dp.message(Command(commands="start"))
 async def start(message: Message) -> None:
+    await state.clear()
     await message.answer(f"Salom, {html.bold(message.from_user.full_name)}!\nMenulardan birini tanla.", reply_markup=start_btn)
 
 
@@ -402,3 +403,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
