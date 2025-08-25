@@ -1,0 +1,217 @@
+{
+    "code_counters": {
+        "scary": {
+            "prefix": "Q",
+            "counter": 124
+        },
+        "multfilm": {
+            "prefix": "M",
+            "counter": 100
+        },
+        "boevik": {
+            "prefix": "B",
+            "counter": 100
+        },
+        "fantastik": {
+            "prefix": "F",
+            "counter": 102
+        },
+        "uzbek": {
+            "prefix": "U",
+            "counter": 100
+        }
+    },
+    "movies": {
+        "Q102": {
+            "file_id": "BAACAgIAAxkBAAPhaKALp2aw8XEpFYEi55RcEajhVgoAAoVuAALhUmhIKgbSlkieuGI2BA",
+            "movie_name": "Timsohlar oroli",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 94
+        },
+        "Q103": {
+            "file_id": "BAACAgIAAxkBAAPtaKAM0l1P6a0EpyylQ5NG9OmlqkkAAjeBAAL0ktlL9yZHVAJM07g2BA",
+            "movie_name": "Spectral",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 95
+        },
+        "Q104": {
+            "file_id": "BAACAgIAAxkBAAPzaKAM6fmYVHNBM7BM00gRMASKN4oAAiIGAAKUVIhK6G0b2TkZkms2BA",
+            "movie_name": "Repraduksiya",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 96
+        },
+        "Q105": {
+            "file_id": "BAACAgIAAxkBAAP5aKANBF6YcmXMlTMK8LKQUeQHeNwAAot_AALhUmBIBt7RoCAeZxs2BA",
+            "movie_name": "Uni qaytar",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 97
+        },
+        "Q106": {
+            "file_id": "BAACAgEAAxkBAAP_aKANGMMonSV3ONOvRCtadKXKMzIAAggCAAKwAWhEg_RYfSqurZk2BA",
+            "movie_name": "Ochiq qolgan qabr",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 98
+        },
+        "Q107": {
+            "file_id": "BAACAgQAAxkBAAIBBWigDSl635KO2idYqk-EyatR-BZIAAJrDgAClQiQUdpQBFE9VskiNgQ",
+            "movie_name": "Chiroqni o'chirma",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 99
+        },
+        "Q108": {
+            "file_id": "BAACAgIAAxkBAAIBC2igDT1DgwqNp_tcIut0KgggSXZXAAIMgAAC4VJgSLEwOHovhJMYNgQ",
+            "movie_name": "Najot yoq",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 100
+        },
+        "Q109": {
+            "file_id": "BAACAgIAAxkBAAIBEWigDVHNhItFsiJq2qEudVXdeaBvAAImfwAC4VJgSKYWjvcAAYrU4DYE",
+            "movie_name": "Kuzatuvchilar",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 101
+        },
+        "Q110": {
+            "file_id": "BAACAgQAAxkBAAIBF2igDW494hgHmFQVCZXmxs1XSJzjAAIqDQAComNhUuGfNucHv4ZkNgQ",
+            "movie_name": "Astral Shayton hiylasi",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 102
+        },
+        "Q111": {
+            "file_id": "BAACAgIAAxkBAAIBHWigDY6xbjfu2z1YKaAdJd7mNzsqAAIrgAAC4VJgSKbm45iJxe1kNgQ",
+            "movie_name": "Uyqu iblisi",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 103
+        },
+        "Q112": {
+            "file_id": "BAACAgEAAxkBAAIBI2igDacm_I5CT6VVrTPmUEIOXyIiAAIOAgACfU0xRfJWeXat5Ci2NgQ",
+            "movie_name": "Babadook",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 104
+        },
+        "Q113": {
+            "file_id": "BAACAgIAAxkBAAIBKWigDb4EpV9Inh77Hwkt_0yuyPlhAAIufwAC4VJgSDv-uW9iPnqlNgQ",
+            "movie_name": "Kelajak urushi",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 105
+        },
+        "Q114": {
+            "file_id": "BAACAgIAAxkBAAIBL2igDdaTvnsJljFTdpOBJMarR63gAAIcJAACRfvYSUr-75Ss8ctMNgQ",
+            "movie_name": "Vaxshiy",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 106
+        },
+        "Q115": {
+            "file_id": "BAACAgQAAxkBAAIBNWigDeYF93Nj1BwwEoDhjl0ppFpSAAIOCgAC-8loUHVeyvHbzU5YNgQ",
+            "movie_name": "Sinister",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 107
+        },
+        "Q116": {
+            "file_id": "BAACAgEAAxkBAAIBO2igDfjK9jKjg7N4ae1I-q6vwRx2AAK4AQACl3sIRi0zMnKnZSTRNgQ",
+            "movie_name": "Noto'g'ri burilish",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 108
+        },
+        "Q117": {
+            "file_id": "BAACAgIAAxkBAAIBQWigDg9hoNW82h9jTe16NEScvTG9AAKJfQACrDdZSJDfMzmf30sYNgQ",
+            "movie_name": "Megan",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 109
+        },
+        "Q118": {
+            "file_id": "BAACAgIAAxkBAAIBR2igDiKEB-AkBL8KimFDnN_Cjr21AAJLfwAC4VJgSNTEQnWDBz3JNgQ",
+            "movie_name": "Parijdagi akulalar",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 110
+        },
+        "Q119": {
+            "file_id": "BAACAgIAAxkBAAIBTWigDjEd6vmlITDcJqxES-zGfKDJAAKoEgACtOugSmR_I5wNjV8gNgQ",
+            "movie_name": "O'liklar Tongi",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 111
+        },
+        "Q120": {
+            "file_id": "BAACAgIAAxkBAAIBU2igDkaCf9bXzEpuKWNEnR5EKkCwAAJ_fwAC4VJgSF3o47F1p6UAATYE",
+            "movie_name": "Megan 2",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 112
+        },
+        "Q121": {
+            "file_id": "BAACAgQAAxkBAAIBWWigDl6_WtE3XRj3kgYRym8SLmTzAAJfDAAChvnhUEEMikwhrxvKNgQ",
+            "movie_name": "Qiyomat kechasi",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 113
+        },
+        "Q122": {
+            "file_id": "BAACAgIAAxkBAAIBX2igDm6dDsts3Tbvfk40TeABQv1oAAJgfwAC4VJgSNqW1Y41Zzq9NgQ",
+            "movie_name": "G'azab",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 114
+        },
+        "Q123": {
+            "file_id": "BAACAgIAAxkBAAIBZWigDoKrcP8wsil-19AVIIB01bOeAAK0fwAC4VJgSD9hcbfv2X7iNgQ",
+            "movie_name": "Qo'g'irchoq Brams",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 115
+        },
+        "Q124": {
+            "file_id": "BAACAgIAAxkBAAIBa2igDpjJYhBWXgABSqlyAAFe_T4x_pwAAm5_AALhUmBIyRUpuNolWZ42BA",
+            "movie_name": "Arvoh shiviri",
+            "genre": "scary",
+            "origin_chat_id": -1002507262411,
+            "origin_message_id": 116
+        },
+        "F101": {
+            "file_id": "BAACAgQAAxkBAAIBcWigDw1qK64Ranuh-h0epSryaQXQAAIpFQACcPxgU1_lJ-_tflGnNgQ",
+            "movie_name": "Samo jangi",
+            "genre": "fantastik",
+            "origin_chat_id": -1002667445705,
+            "origin_message_id": 4
+        },
+        "F102": {
+            "file_id": "BAACAgEAAxkBAAOyaKAIloyKWlIrbzlQ7szz8xl-x6IAAqwDAAIf9hhGTfcYo9NIG_42BA",
+            "movie_name": "Oyning qulashi",
+            "genre": "fantastik",
+            "origin_chat_id": -1002667445705,
+            "origin_message_id": 5
+        }
+    },
+    "views_log": {
+        "Q102": [
+            "2025-08-16",
+            "2025-08-16",
+            "2025-08-25"
+        ],
+        "Q103": [
+            "2025-08-16"
+        ],
+        "Q105": [
+            "2025-08-16"
+        ],
+        "Q109": [
+            "2025-08-16"
+        ]
+    }
+}
