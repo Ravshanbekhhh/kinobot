@@ -1,24 +1,19 @@
 import asyncio, logging, sys, json, os
 from aiogram import Bot, Dispatcher, html, F
+from aiogram.client.default import DefaultBotProperties
+from aiogram.enums import ParseMode
 from aiogram.exceptions import TelegramBadRequest
 from aiogram.filters import Command
 from aiogram.fsm.state import StatesGroup, State
-from aiogram.types import Message, CallbackQuery, Update
+from aiogram.types import Message, CallbackQuery
 from aiogram.fsm.context import FSMContext
 from dotenv import load_dotenv
 from datetime import datetime, timedelta
 from buttons import start_btn, Categories
-from aiohttp import web
-from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_application
-from aiohttp_wsgi import WSGIHandler
+
 load_dotenv()
 
 TOKEN = "8305141782:AAF5qyfXs1XVxDDFVfF_GUOn_vK76Kbb348"
-WEBHOOK_HOST = "https://ravshanbek1808.alwaysdata.net"
-WEBHOOK_PATH = "/webhook"
-WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
-bot = Bot(token=TOKEN)
-
 
 # Kanal ID'lar
 CHANNELS = {
@@ -48,20 +43,6 @@ code_counters = {
 }
 movies = {}
 views_log = {}  # {"kod": ["2025-08-01", "2025-08-02", ...]}
-
-# Webhook handler
-
-
-
-
-
-async def on_startup(app: web.Application):
-    await bot.set_webhook(WEBHOOK_URL)
-
-async def on_shutdown(app: web.Application):
-    await bot.session.close()
-
-
 
 # ---------- JSON FAYL FUNKSIYALARI ----------
 def load_channels():
@@ -415,18 +396,26 @@ async def delete_later(bot: Bot, chat_id, message_id, delay):
     await asyncio.sleep(delay)
     await bot.delete_message(chat_id=chat_id, message_id=message_id)
 
-def create_app():
-    app = web.Application()
-    SimpleRequestHandler(dp, bot).register(app, path=WEBHOOK_PATH)
-    setup_application(app, dp, bot=bot)
-    app.on_startup.append(on_startup)
-    app.on_shutdown.append(on_shutdown)
+# Asosiy ishlovchi qism
+async def main():
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        stream=sys.stdout,
+    )
 
+    from aiogram import Bot
+    bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+
+    # Ma’lumotlarni yuklash
     load_data()
 
-    return app
+    # Pollingni ishga tushirish
+    await dp.start_polling(bot)
 
-# uWSGI shuni qidiradi
-app = create_app()
-application = WSGIHandler(app)
 
+if __name__ == "__main__":
+    try:
+        asyncio.run(main())
+    except (KeyboardInterrupt, SystemExit):
+        print("❌ Bot to‘xtatildi")
