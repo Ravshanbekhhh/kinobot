@@ -10,6 +10,7 @@ from datetime import datetime, timedelta
 from buttons import start_btn, Categories
 from aiohttp import web
 from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_application
+from aiohttp_wsgi import WSGIHandler
 load_dotenv()
 
 TOKEN = "8305141782:AAF5qyfXs1XVxDDFVfF_GUOn_vK76Kbb348"
@@ -426,5 +427,6 @@ def create_app():
     return app
 
 # uWSGI shuni qidiradi
-application = create_app()
+app = create_app()
+application = WSGIHandler(app)
 
