@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 from datetime import datetime, timedelta
 from buttons import start_btn, Categories
 from aiohttp import web
+from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_application
 load_dotenv()
 
 TOKEN = "8305141782:AAF5qyfXs1XVxDDFVfF_GUOn_vK76Kbb348"
@@ -48,20 +49,15 @@ movies = {}
 views_log = {}  # {"kod": ["2025-08-01", "2025-08-02", ...]}
 
 # Webhook handler
-async def handle_webhook(request):
-    data = await request.json()
-    update = Update.to_object(data)
-    await dp.feed_update(bot, update)
-    return web.Response()
 
 
-async def on_startup(app):
-    # Eski webhookni o‘chirib, yangisini o‘rnatamiz
-    await bot.delete_webhook()
+
+
+
+async def on_startup(app: web.Application):
     await bot.set_webhook(WEBHOOK_URL)
 
-
-async def on_shutdown(app):
+async def on_shutdown(app: web.Application):
     await bot.session.close()
 
 
@@ -418,15 +414,17 @@ async def delete_later(bot: Bot, chat_id, message_id, delay):
     await asyncio.sleep(delay)
     await bot.delete_message(chat_id=chat_id, message_id=message_id)
 
-async def main():
+def create_app():
     app = web.Application()
-    app.router.add_post(WEBHOOK_PATH, handle_webhook)
-
+    SimpleRequestHandler(dp, bot).register(app, path=WEBHOOK_PATH)
+    setup_application(app, dp, bot=bot)
     app.on_startup.append(on_startup)
     app.on_shutdown.append(on_shutdown)
 
-    web.run_app(app, host="0.0.0.0", port=8080)  # Alwaysdata 8080 portda ishlatadi
+    load_data()
 
+    return app
 
-if __name__ == "__main__":
-    asyncio.run(main())
+# uWSGI shuni qidiradi
+application = create_app()
+
