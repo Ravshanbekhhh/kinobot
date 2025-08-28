@@ -1,19 +1,22 @@
 import asyncio, logging, sys, json, os
 from aiogram import Bot, Dispatcher, html, F
-from aiogram.client.default import DefaultBotProperties
-from aiogram.enums import ParseMode
 from aiogram.exceptions import TelegramBadRequest
 from aiogram.filters import Command
 from aiogram.fsm.state import StatesGroup, State
-from aiogram.types import Message, CallbackQuery
+from aiogram.types import Message, CallbackQuery, Update
 from aiogram.fsm.context import FSMContext
 from dotenv import load_dotenv
 from datetime import datetime, timedelta
 from buttons import start_btn, Categories
-
+from aiohttp import web
 load_dotenv()
 
 TOKEN = "8305141782:AAF5qyfXs1XVxDDFVfF_GUOn_vK76Kbb348"
+WEBHOOK_HOST = "https://ravshanbek1808.alwaysdata.net"
+WEBHOOK_PATH = "/webhook"
+WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
+bot = Bot(token=TOKEN)
+
 
 # Kanal ID'lar
 CHANNELS = {
@@ -30,7 +33,8 @@ CHANNELS_FILE = "channels.json"
 dp = Dispatcher()
 
 Login = "temirqol"
-Password = "darrax"
+Password = ("darrax"
+            "")
 
 # Default qiymatlar
 code_counters = {
@@ -42,6 +46,25 @@ code_counters = {
 }
 movies = {}
 views_log = {}  # {"kod": ["2025-08-01", "2025-08-02", ...]}
+
+# Webhook handler
+async def handle_webhook(request):
+    data = await request.json()
+    update = Update.to_object(data)
+    await dp.feed_update(bot, update)
+    return web.Response()
+
+
+async def on_startup(app):
+    # Eski webhookni o‘chirib, yangisini o‘rnatamiz
+    await bot.delete_webhook()
+    await bot.set_webhook(WEBHOOK_URL)
+
+
+async def on_shutdown(app):
+    await bot.session.close()
+
+
 
 # ---------- JSON FAYL FUNKSIYALARI ----------
 def load_channels():
@@ -139,9 +162,9 @@ async def delete_channel_cb(callback: CallbackQuery):
     await callback.message.edit_text(f"🗑 {username} kanali o‘chirildi.")
 
 @dp.message(Command(commands="start"))
-async def start(message: Message) -> None:
-    await message.answer(f"Salom, {html.bold(message.from_user.full_name)}!\nMenulardan birini tanla.", reply_markup=start_btn)
+async def start(message: Message,state:FSMContext) -> None:
     await state.clear()
+    await message.answer(f"Salom, {html.bold(message.from_user.full_name)}!\nMenulardan birini tanla.", reply_markup=start_btn)
 
 
 
@@ -396,12 +419,14 @@ async def delete_later(bot: Bot, chat_id, message_id, delay):
     await bot.delete_message(chat_id=chat_id, message_id=message_id)
 
 async def main():
-    logging.basicConfig(level=logging.INFO, stream=sys.stdout)
-    load_data()
-    bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
-    await dp.start_polling(bot)
+    app = web.Application()
+    app.router.add_post(WEBHOOK_PATH, handle_webhook)
+
+    app.on_startup.append(on_startup)
+    app.on_shutdown.append(on_shutdown)
+
+    web.run_app(app, host="0.0.0.0", port=8080)  # Alwaysdata 8080 portda ishlatadi
+
 
 if __name__ == "__main__":
     asyncio.run(main())
-
-
